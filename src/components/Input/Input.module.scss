@@ -1,0 +1,14 @@
+.input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 140%;
+  color: var(--gray6);
+  background-color: var(--gray1);
+  border-radius: 0.375rem;
+
+  &::placeholder {
+    color: var(--gray5);
+  }
+}

@@ -1,0 +1,29 @@
+.buttonSmall,
+.buttonMedium,
+.buttonLarge {
+  font-weight: 700;
+  line-height: 160%;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+  background-color: var(--green);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--green-light);
+  }
+}
+
+.buttonSmall {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.buttonMedium {
+  font-size: 1rem;
+  padding: 0.875rem 2rem;
+}
+
+.buttonLarge {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}

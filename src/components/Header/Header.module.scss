@@ -1,0 +1,10 @@
+.header {
+  background-color: var(--gray1);
+  height: 13.25rem;
+  padding-top: 40px;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
