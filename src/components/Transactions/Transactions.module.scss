@@ -1,39 +1,42 @@
 .list {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 8px;
   margin-top: 24px;
 
   li {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px 32px;
     background-color: var(--gray3);
     border-radius: 5px;
     gap: 8px;
 
-    .description {
-      width: 50%;
+    p {
+      color: var(--gray6);
+      flex: 1;
+      word-wrap: break-word;
+
+      &:last-child {
+        text-align: right;
+        flex: 1;
+      }
     }
 
-    .wrapper {
-      display: flex;
-      justify-content: space-between;
+    .description {
+      max-width: 500px;
+      min-width: 250px;
     }
 
     .entry,
     .output {
-      width: 20%;
+      max-width: 200px;
+      min-width: 100px;
     }
 
     .category {
-      width: 20%;
-    }
-
-    p {
-      color: var(--gray6);
-      flex-wrap: wrap;
+      max-width: 240px;
+      min-width: 120px;
     }
 
     .entry {
@@ -42,6 +45,11 @@
 
     .output {
       color: var(--red);
+    }
+
+    .date {
+      max-width: 92px;
+      min-width: 92px;
     }
   }
 }

@@ -10,28 +10,28 @@ const Transactions = () => {
         return (
           <li key={index}>
             <p className={styles.description}>{transaction.description}</p>
-            <div className={styles.wrapper}>
-              {transaction.type === "entry" ? (
-                <p className={styles.entry}>
-                  {" "}
-                  {/* Formata o valor da propriedade price para o formato de moeda brasileira. */}
-                  {Number(transaction.price).toLocaleString("pt-br", {
-                    style: "currency", // Formata o valor para o formato de moeda.
-                    currency: "BRL", // Define a moeda como Real Brasileiro.
-                  })}
-                </p>
-              ) : (
-                <p className={styles.output}>
-                  -{" "}
-                  {/* Formata o valor da propriedade price para o formato de moeda brasileira. */}
-                  {Number(transaction.price).toLocaleString("pt-br", {
-                    style: "currency", // Formata o valor para o formato de moeda.
-                    currency: "BRL", // Define a moeda como Real Brasileiro.
-                  })}
-                </p>
-              )}
-              <p className={styles.category}>{transaction.category}</p>
-            </div>
+
+            {transaction.type === "entry" ? (
+              <p className={styles.entry}>
+                {" "}
+                {/* Formata o valor da propriedade price para o formato de moeda brasileira. */}
+                {Number(transaction.price).toLocaleString("pt-br", {
+                  style: "currency", // Formata o valor para o formato de moeda.
+                  currency: "BRL", // Define a moeda como Real Brasileiro.
+                })}
+              </p>
+            ) : (
+              <p className={styles.output}>
+                -{" "}
+                {/* Formata o valor da propriedade price para o formato de moeda brasileira. */}
+                {Number(transaction.price).toLocaleString("pt-br", {
+                  style: "currency", // Formata o valor para o formato de moeda.
+                  currency: "BRL", // Define a moeda como Real Brasileiro.
+                })}
+              </p>
+            )}
+            <p className={styles.category}>{transaction.category}</p>
+
             <p className={styles.date}>{transaction.date}</p>
           </li>
         );
