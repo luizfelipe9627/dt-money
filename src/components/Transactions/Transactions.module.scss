@@ -1,3 +1,47 @@
 .list {
-  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  margin-top: 24px;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 32px;
+    background-color: var(--gray3);
+    border-radius: 5px;
+    gap: 8px;
+
+    .description {
+      width: 50%;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .entry,
+    .output {
+      width: 20%;
+    }
+
+    .category {
+      width: 20%;
+    }
+
+    p {
+      color: var(--gray6);
+      flex-wrap: wrap;
+    }
+
+    .entry {
+      color: var(--green-light);
+    }
+
+    .output {
+      color: var(--red);
+    }
+  }
 }
