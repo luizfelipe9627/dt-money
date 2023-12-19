@@ -2,9 +2,16 @@
   background-color: var(--gray1);
   height: 13.25rem;
   padding-top: 40px;
-
+  position: relative;
   .wrapper {
     display: flex;
     justify-content: space-between;
   }
+}
+
+.statistics {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }

@@ -10,7 +10,6 @@ const Transactions = () => {
         return (
           <li key={index}>
             <p className={styles.description}>{transaction.description}</p>
-
             {transaction.type === "entry" ? (
               <p className={styles.entry}>
                 {" "}
@@ -31,7 +30,6 @@ const Transactions = () => {
               </p>
             )}
             <p className={styles.category}>{transaction.category}</p>
-
             <p className={styles.date}>{transaction.date}</p>
           </li>
         );
