@@ -44,6 +44,7 @@ const Modal = () => {
     if (setModal) {
       setModal(false);
     }
+    document.body.style.overflow = "auto";
   };
 
   const handleCreateTransaction = () => {
