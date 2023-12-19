@@ -1,15 +1,15 @@
-import styles from "./Card.module.scss";
+import styles from "./CardValue.module.scss";
 
-interface CardProps {
+interface CardValueProps {
   title: string;
   value: string;
   imgSrc: string;
   bgColor?: string;
 }
 
-const Card = ({ title, value, imgSrc, bgColor }: CardProps) => {
+const CardValue = ({ title, value, imgSrc, bgColor }: CardValueProps) => {
   return (
-    <div className={styles.card} style={{ backgroundColor: bgColor }}>
+    <div className={styles.cardValue} style={{ backgroundColor: bgColor }}>
       <div>
         <p className="text-md">{title}</p>
         <img src={imgSrc} />
@@ -20,4 +20,4 @@ const Card = ({ title, value, imgSrc, bgColor }: CardProps) => {
   );
 };
 
-export default Card;
+export default CardValue;

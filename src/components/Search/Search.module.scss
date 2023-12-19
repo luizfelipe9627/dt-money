@@ -1,0 +1,20 @@
+.search {
+  margin-top: 199px;
+
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.375rem;
+      background-color: var(--gray1);
+      color: var(--gray8);
+
+      &::placeholder {
+        color: var(--gray5);
+      }
+    }
+  }
+}

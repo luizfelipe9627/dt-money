@@ -4,6 +4,8 @@ import Transactions from "./components/Transactions/Transactions";
 import { ButtonSelectedProvider } from "./context/ButtonSelectedContext";
 import { ModalProvider } from "./context/ModalContext";
 import { TransactionsProvider } from "./context/TransactionsContext";
+import Values from "./components/Values/Values";
+import Search from "./components/Search/Search";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Header />
         </ModalProvider>
       </ButtonSelectedProvider>
+      <Values />
+      <Search />
       <Transactions />
     </TransactionsProvider>
   );

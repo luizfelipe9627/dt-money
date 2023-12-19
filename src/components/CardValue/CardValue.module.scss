@@ -1,4 +1,4 @@
-.card {
+.cardValue {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,5 +19,7 @@
 
   h1 {
     color: var(--gray7);
+    max-width: 296px;
+    word-wrap: break-word;
   }
 }
