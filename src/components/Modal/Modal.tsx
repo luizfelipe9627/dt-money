@@ -12,7 +12,6 @@ const Modal = () => {
   const { modal, setModal } = useModal();
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { setTransactions } = useTransactions();
-
   const [inputDescription, setInputDescription] = React.useState("");
   const [inputPrice, setInputPrice] = React.useState("");
   const [inputCategory, setInputCategory] = React.useState("");
@@ -22,10 +21,21 @@ const Modal = () => {
   const [successDescription, setSuccessDescription] = React.useState(false);
   const [successPrice, setSuccessPrice] = React.useState(false);
   const [successCategory, setSuccessCategory] = React.useState(false);
-
   const date = new Date();
-
   const inputs = document.querySelectorAll(`.${styles.inputs} input`);
+
+  const cleanInputs = () => {
+    setSuccessDescription(false);
+    setErrorDescription(false);
+    setSuccessPrice(false);
+    setErrorPrice(false);
+    setSuccessCategory(false);
+    setErrorCategory(false);
+    setButtonSelected(null);
+    setInputDescription("");
+    setInputPrice("");
+    setInputCategory("");
+  };
 
   const handleOutsideClick: React.MouseEventHandler<HTMLDivElement> = (
     event,
@@ -33,16 +43,16 @@ const Modal = () => {
     const target = event.target as HTMLDivElement;
     const currentTarget = event.currentTarget as HTMLDivElement;
 
-    if (target === currentTarget) {
-      if (setModal) {
-        setModal(false);
-      }
+    if (target === currentTarget && setModal) {
+      setModal(false);
+      cleanInputs();
     }
   };
 
   const handleCloseModal: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (setModal) {
       setModal(false);
+      cleanInputs();
     }
   };
 
@@ -65,14 +75,7 @@ const Modal = () => {
       setModal(false);
       setTransactions((prevTransactions) => [...prevTransactions, transaction]);
 
-      setInputDescription("");
-      setInputPrice("");
-      setInputCategory("");
-
-      setSuccessDescription(false);
-      setSuccessPrice(false);
-      setSuccessCategory(false);
-      setButtonSelected(null);
+      cleanInputs();
 
       localStorage.setItem(
         "transactions",
