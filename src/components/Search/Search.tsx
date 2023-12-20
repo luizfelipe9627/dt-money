@@ -40,7 +40,7 @@ const Search = () => {
           placeholder="Busque uma transação"
           className="text-md"
         />
-        <ButtonSearch onClick={handleSearch}>Search</ButtonSearch>
+        <ButtonSearch onClick={handleSearch}>Buscar</ButtonSearch>
       </div>
     </div>
   );

@@ -1,55 +1,59 @@
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 24px;
+.transactions {
+  margin-bottom: 2.5rem;
 
-  li {
+  .list {
     display: flex;
-    justify-content: space-between;
-    padding: 20px 32px;
-    background-color: var(--gray3);
-    border-radius: 5px;
+    flex-direction: column;
     gap: 8px;
+    margin-top: 1.5rem;
 
-    p {
-      color: var(--gray6);
-      flex: 1;
-      word-wrap: break-word;
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      background-color: var(--gray3);
+      border-radius: 5px;
+      gap: 0.5rem;
 
-      &:last-child {
-        text-align: right;
+      p {
+        color: var(--gray6);
         flex: 1;
+        word-wrap: break-word;
+
+        &:last-child {
+          text-align: right;
+          flex: 1;
+        }
       }
-    }
 
-    .description {
-      max-width: 500px;
-      min-width: 250px;
-    }
+      .description {
+        max-width: 31.25rem;
+        min-width: 15.625rem;
+      }
 
-    .entry,
-    .output {
-      max-width: 200px;
-      min-width: 100px;
-    }
+      .entry,
+      .output {
+        max-width: 12.5rem;
+        min-width: 6.25rem;
+      }
 
-    .category {
-      max-width: 240px;
-      min-width: 120px;
-    }
+      .category {
+        max-width: 15rem;
+        min-width: 7.5rem;
+      }
 
-    .entry {
-      color: var(--green-light);
-    }
+      .entry {
+        color: var(--green-light);
+      }
 
-    .output {
-      color: var(--red);
-    }
+      .output {
+        color: var(--red);
+      }
 
-    .date {
-      max-width: 92px;
-      min-width: 92px;
+      .date {
+        max-width: 5.75rem;
+        min-width: 5.75rem;
+      }
     }
   }
 }

@@ -44,7 +44,6 @@ const Modal = () => {
     if (setModal) {
       setModal(false);
     }
-    document.body.style.overflow = "auto";
   };
 
   const handleCreateTransaction = () => {
@@ -142,6 +141,14 @@ const Modal = () => {
       setErrorCategory(true);
     }
   };
+
+  React.useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
 
   return (
     <div

@@ -9,7 +9,7 @@ body {
 
 .animeBottom {
   opacity: 0;
-  transform: translateY(-40px);
+  transform: translateY(-2.5rem);
   animation: animeBottom 1.2s forwards;
 }
 
@@ -21,9 +21,9 @@ body {
 }
 
 .success {
-  border: 1px solid var(--green);
+  border: 0.0625rem solid var(--green);
 }
 
 .error {
-  border: 1px solid var(--red);
+  border: 0.0625rem solid var(--red);
 }

@@ -16,9 +16,11 @@ const App = () => {
           <Header />
         </ModalProvider>
       </ButtonSelectedProvider>
-      <Values />
-      <Search />
-      <Transactions />
+      <main>
+        <Values />
+        <Search />
+        <Transactions />
+      </main>
     </TransactionsProvider>
   );
 };

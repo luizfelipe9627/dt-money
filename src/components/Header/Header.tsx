@@ -8,7 +8,7 @@ const Header = () => {
 
   const handleOpenModal = () => {
     setModal(true);
-    document.body.style.overflow = "hidden";
+    window.scrollTo({ behavior: "smooth", top: 0 });
   };
 
   return (

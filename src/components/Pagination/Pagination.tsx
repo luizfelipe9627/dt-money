@@ -21,7 +21,16 @@ const Pagination = ({
   // Calcular o número total de páginas
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  for (let i = 1; i <= totalPages; i++) {
+  // Determinar os números de página a serem exibidos
+  let startPage = Math.max(1, currentPage - 1);
+  let endPage = Math.min(totalPages, startPage + 2);
+
+  // Ajustar os números de página para sempre exibir 3 botões
+  if (endPage - startPage < 2) {
+    startPage = Math.max(1, endPage - 2);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
     pageNumbers.push(i);
   }
 
@@ -32,7 +41,7 @@ const Pagination = ({
         onClick={() => setCurrentPage(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <ArrowPrev disabled={currentPage === 1}/>
+        <ArrowPrev disabled={currentPage === 1} />
       </button>
 
       <div className={styles.buttons}>
@@ -52,7 +61,7 @@ const Pagination = ({
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <ArrowNext disabled={currentPage === totalPages}/>
+        <ArrowNext disabled={currentPage === totalPages} />
       </button>
     </div>
   );
