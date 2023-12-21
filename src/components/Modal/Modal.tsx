@@ -7,9 +7,11 @@ import X from "../../assets/x.svg";
 import { useModal } from "../../context/ModalContext";
 import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
+import useMedia from "../../hooks/useMedia";
 
 const Modal = () => {
   const { modal, setModal } = useModal();
+  const media = useMedia("(max-width: 600px)");
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { setTransactions } = useTransactions();
   const [inputDescription, setInputDescription] = React.useState("");
@@ -163,7 +165,9 @@ const Modal = () => {
           <img src={X} alt="Fechar modal" title="Fechar modal" />
         </button>
 
-        <h1 className="headline-md">Nova transação</h1>
+        <h1 className={media ? "headline-sm" : "headline-md"}>
+          Nova transação
+        </h1>
 
         <div className={styles.inputs}>
           <Input

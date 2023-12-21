@@ -1,5 +1,3 @@
-import ArrowDown from "./ArrowDown";
-
 interface ArrowUpProps {
   size: "small" | "medium";
 }

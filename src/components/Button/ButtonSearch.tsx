@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ButtonSearch.module.scss";
-import MagnifyingGlass from "../../assets/MagnifyingGlass";
+import MagnifyingGlass from "../../assets/MagnifyingGlass.svg";
 
 interface ButtonSearchProps {
   onClick?: () => void;
@@ -10,7 +10,10 @@ interface ButtonSearchProps {
 const ButtonSearch = ({ children, onClick }: ButtonSearchProps) => {
   return (
     <button className={styles.buttonSearch} onClick={onClick}>
-      <MagnifyingGlass />
+      <img
+        src={MagnifyingGlass}
+        alt="Lupa de pesquisa"
+      />
       {children}
     </button>
   );

@@ -11,6 +11,10 @@
   visibility: visible;
   transition: all 0.3s ease-in-out;
 
+  @media (max-width: 600px) {
+    align-items: flex-end;
+  }
+
   &.isOpen {
     opacity: 0;
     visibility: hidden;
@@ -22,12 +26,23 @@
     padding: 3rem;
     position: relative;
 
+    @media (max-width: 600px) {
+      width: 100vw;
+      border-radius: 20px 20px 0 0;
+      padding: 1.5rem;
+    }
+
     .close {
       width: max-content;
       background-color: transparent;
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
+
+      @media (max-width: 600px) {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     h1 {

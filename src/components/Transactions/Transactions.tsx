@@ -72,7 +72,7 @@ const Transactions = () => {
               )}
               {media ? (
                 <div className={styles.categoryMedia}>
-                  <img src={TagSimple} />
+                  <img src={TagSimple} alt="Tag simples"/>
                   <p className={`${styles.category} text-md`}>
                     {transaction.category}
                   </p>
@@ -84,7 +84,7 @@ const Transactions = () => {
               )}
               {media ? (
                 <div className={styles.dateMedia}>
-                  <img src={CalendarBlank} />
+                  <img src={CalendarBlank} alt="Calendário vazio" />
                   <p className={`${styles.date} text-md`}>
                     {transaction.date}
                   </p>

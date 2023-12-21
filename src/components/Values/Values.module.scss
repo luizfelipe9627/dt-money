@@ -1,19 +1,16 @@
 .values {
   display: flex;
-  gap: 32px;
+  gap: 2rem;
   z-index: 999;
   position: relative;
   top: 135px;
   overflow: auto;
 
-  &::-webkit-scrollbar {
-    width: 0
+  @media (max-width: 990px) {
+    gap: 1rem;
   }
 
-  /*
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--gray6);
-    border-radius: 10px;
+  &::-webkit-scrollbar {
+    width: 0;
   }
-  */
 }

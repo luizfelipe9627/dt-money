@@ -1,3 +1,4 @@
+import useMedia from "../../hooks/useMedia";
 import styles from "./CardValue.module.scss";
 
 interface CardValueProps {
@@ -10,6 +11,8 @@ interface CardValueProps {
 }
 
 const CardValue = ({ title, value, imgSrc, bgColor, info, colorInfo }: CardValueProps) => {
+  const media = useMedia("(max-width: 990px)");
+  
   return (
     <div className={styles.cardValue} style={{ backgroundColor: bgColor }}>
       <div className={styles.title}>
@@ -18,7 +21,7 @@ const CardValue = ({ title, value, imgSrc, bgColor, info, colorInfo }: CardValue
       </div>
 
       <div className={styles.data}>
-        <h1 className="headline-lg">{value}</h1>
+        <h1 className={media ? "headline-md" : "headline-lg"}>{value}</h1>
         {info && <p className={`${styles.subtitle} text-sm`} style={{color: `${colorInfo}`}}>{info}</p>}
       </div>
     </div>

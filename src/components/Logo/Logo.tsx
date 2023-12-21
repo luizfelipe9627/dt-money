@@ -1,10 +1,10 @@
-import IgniteLogo from "../../assets/IgniteLogo.svg";
 import styles from "./Logo.module.scss";
+import IgniteImg from "../../assets/Ignite.svg";
 
 const Logo = () => {
   return (
     <div className={styles.logo}>
-      <img src={IgniteLogo} alt="Logo Ignite" title="Logo Ignite" />
+      <img src={IgniteImg} alt="Ignite Logo" title="Ignite Logo" />
       <h1>DT Money</h1>
     </div>
   );

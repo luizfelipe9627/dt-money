@@ -5,6 +5,10 @@ body {
 .container {
   max-width: 80vw;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 85vw;
+  }
 }
 
 .animeBottom {
