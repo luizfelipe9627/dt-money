@@ -3,7 +3,7 @@ import styles from "./Modal.module.scss";
 import Button from "../Button/Button";
 import { useButtonSelected } from "../../context/ButtonSelectedContext";
 import ButtonSelect from "../Button/ButtonSelect";
-import X from "../../assets/x.svg";
+import X from "../../assets/X.svg";
 import { useModal } from "../../context/ModalContext";
 import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
