@@ -1,6 +1,5 @@
 .buttonSearch {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
   border-radius: 8px;
   border: 1px solid var(--green-light);
@@ -8,28 +7,35 @@
   gap: 0.75rem;
   transition: background-color 0.2s ease-in-out;
 
+  @media (max-width: 850px) {
+    display: flex;
+    gap: 0;
+    padding: 1rem;
+  }
+
   button {
     font-size: 1rem;
     font-weight: 700;
     line-height: 160%;
     color: var(--green-light);
     background-color: transparent;
+
+    @media (max-width: 850px) {
+      display: none;
+    }
+  }
+
+  img {
+    max-width: initial;
+
+    @media (max-width: 850px) {
+      width: 22px;
+      height: 22px;
+    }
   }
 
   &:hover {
     background-color: var(--green);
     color: var(--white);
-  }
-
-  @media (max-width: 850px) {
-    padding: 1rem;
-    font-size: 0;
-    gap: 0;
-
-    img {
-      width: 22px;
-      height: 22px;
-      max-width: initial;
-    }
   }
 }

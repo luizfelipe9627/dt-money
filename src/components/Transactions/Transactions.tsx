@@ -33,23 +33,12 @@ const Transactions = () => {
     currency: "BRL", // Define a moeda como Real Brasileiro.
   });
 
-  const handleClick = (
-    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    transaction: TransactionsProps,
-  ) => {
-    console.log("Clicou em:", transaction);
-    console.log("Evento:", event.pageX, event.pageY);
-  };
-
   return (
     <div className={styles.transactions}>
       <ul className={`${styles.list} container`}>
         {currentItems.map((transaction, index) => {
           return (
-            <li
-              key={index}
-              onClick={(event) => handleClick(event, transaction)}
-            >
+            <li key={index}>
               <p className={`${styles.description} text-md`}>
                 {transaction.description}
               </p>
@@ -72,7 +61,7 @@ const Transactions = () => {
               )}
               {media ? (
                 <div className={styles.categoryMedia}>
-                  <img src={TagSimple} alt="Tag simples"/>
+                  <img src={TagSimple} alt="Tag simples" />
                   <p className={`${styles.category} text-md`}>
                     {transaction.category}
                   </p>
@@ -85,16 +74,11 @@ const Transactions = () => {
               {media ? (
                 <div className={styles.dateMedia}>
                   <img src={CalendarBlank} alt="Calendário vazio" />
-                  <p className={`${styles.date} text-md`}>
-                    {transaction.date}
-                  </p>
+                  <p className={`${styles.date} text-md`}>{transaction.date}</p>
                 </div>
               ) : (
-                <p className={`${styles.date} text-md`}>
-                  {transaction.date}
-                </p>
-              )
-              }
+                <p className={`${styles.date} text-md`}>{transaction.date}</p>
+              )}
             </li>
           );
         })}
