@@ -6,14 +6,6 @@ import useMedia from "../../hooks/useMedia";
 import CalendarBlank from "../../assets/CalendarBlank.svg";
 import TagSimple from "../../assets/TagSimple.svg";
 
-interface TransactionsProps {
-  description: string;
-  price: string;
-  category: string;
-  date: string;
-  type: string | null;
-}
-
 const Transactions = () => {
   const { transactions } = useTransactions();
   const itemsPerPage = 10;
