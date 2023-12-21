@@ -9,13 +9,10 @@ interface ButtonSearchProps {
 
 const ButtonSearch = ({ children, onClick }: ButtonSearchProps) => {
   return (
-    <button className={styles.buttonSearch} onClick={onClick}>
-      <img
-        src={MagnifyingGlass}
-        alt="Lupa de pesquisa"
-      />
-      {children}
-    </button>
+    <div className={styles.buttonSearch}>
+      <img src={MagnifyingGlass} alt="Magnifying Glass" />
+      <button onClick={onClick}>{children}</button>
+    </div>
   );
 };
 
