@@ -4,4 +4,16 @@
   z-index: 999;
   position: relative;
   top: 135px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0
+  }
+
+  /*
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray6);
+    border-radius: 10px;
+  }
+  */
 }

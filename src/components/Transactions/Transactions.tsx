@@ -2,6 +2,9 @@ import React from "react";
 import { useTransactions } from "../../context/TransactionsContext";
 import Pagination from "../Pagination/Pagination";
 import styles from "./Transactions.module.scss";
+import useMedia from "../../hooks/useMedia";
+import CalendarBlank from "../../assets/CalendarBlank.svg";
+import TagSimple from "../../assets/TagSimple.svg";
 
 interface TransactionsProps {
   description: string;
@@ -14,6 +17,7 @@ interface TransactionsProps {
 const Transactions = () => {
   const { transactions } = useTransactions();
   const itemsPerPage = 10;
+  const media = useMedia("(max-width: 850px)");
 
   // Estado local para controlar a página atual
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -46,18 +50,51 @@ const Transactions = () => {
               key={index}
               onClick={(event) => handleClick(event, transaction)}
             >
-              <p className={styles.description}>{transaction.description}</p>
+              <p className={`${styles.description} text-md`}>
+                {transaction.description}
+              </p>
               {transaction.type === "entry" ? (
-                <p className={styles.entry}>
+                <p
+                  className={`${styles.entry} ${
+                    media ? "headline-sm" : "text-md"
+                  }`}
+                >
                   {formatBRL.format(Number(transaction.price))}
                 </p>
               ) : (
-                <p className={styles.output}>
+                <p
+                  className={`${styles.output} ${
+                    media ? "headline-sm" : "text-md"
+                  }`}
+                >
                   - {formatBRL.format(Number(transaction.price))}
                 </p>
               )}
-              <p className={styles.category}>{transaction.category}</p>
-              <p className={styles.date}>{transaction.date}</p>
+              {media ? (
+                <div className={styles.categoryMedia}>
+                  <img src={TagSimple} />
+                  <p className={`${styles.category} text-md`}>
+                    {transaction.category}
+                  </p>
+                </div>
+              ) : (
+                <p className={`${styles.category} text-md`}>
+                  {transaction.category}
+                </p>
+              )}
+              {media ? (
+                <div className={styles.dateMedia}>
+                  <img src={CalendarBlank} />
+                  <p className={`${styles.date} text-md`}>
+                    {transaction.date}
+                  </p>
+                </div>
+              ) : (
+                <p className={`${styles.date} text-md`}>
+                  {transaction.date}
+                </p>
+              )
+              }
             </li>
           );
         })}

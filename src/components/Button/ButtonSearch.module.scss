@@ -16,4 +16,13 @@
     background-color: var(--green);
     color: var(--white);
   }
+
+  @media (max-width: 850px) {
+    padding: 1rem;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
 }

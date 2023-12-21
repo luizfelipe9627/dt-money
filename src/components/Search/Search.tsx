@@ -2,10 +2,12 @@ import React from "react";
 import ButtonSearch from "../Button/ButtonSearch";
 import styles from "./Search.module.scss";
 import { useTransactions } from "../../context/TransactionsContext";
+import useMedia from "../../hooks/useMedia";
 
 const Search = () => {
   const [search, setSearch] = React.useState("");
   const { transactions, setTransactions } = useTransactions();
+  const media = useMedia("(max-width: 850px)");
 
   const handleSearch = () => {
     setTransactions([]);
@@ -40,7 +42,9 @@ const Search = () => {
           placeholder="Busque uma transação"
           className="text-md"
         />
-        <ButtonSearch onClick={handleSearch}>Buscar</ButtonSearch>
+        <ButtonSearch onClick={handleSearch}>
+          {media ? "" : "Buscar"}
+        </ButtonSearch>
       </div>
     </div>
   );

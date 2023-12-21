@@ -16,5 +16,9 @@
         color: var(--gray5);
       }
     }
+
+    @media (max-width: 850px) {
+      gap: 0.5rem;
+    }
   }
 }

@@ -15,31 +15,60 @@
       border-radius: 5px;
       gap: 0.5rem;
 
+      @media (max-width: 850px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 320px) {
+        grid-template-columns: 1fr;
+      }
+
       p {
         color: var(--gray6);
         flex: 1;
         word-wrap: break-word;
-
-        &:last-child {
-          text-align: right;
-          flex: 1;
-        }
       }
 
       .description {
         max-width: 31.25rem;
         min-width: 15.625rem;
+
+        @media (max-width: 850px) {
+          grid-column: 1 / -1;
+          max-width: initial;
+          min-width: initial;
+        }
       }
 
       .entry,
       .output {
         max-width: 12.5rem;
         min-width: 6.25rem;
+
+        @media (max-width: 850px) {
+          grid-row: 2;
+          grid-column: 1 / -1;
+          max-width: initial;
+          min-width: initial;
+        }
       }
 
       .category {
         max-width: 15rem;
         min-width: 7.5rem;
+
+        @media (max-width: 850px) {
+          grid-row: 3;
+          color: var(--gray5);
+        }
+      }
+
+      .categoryMedia {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        grid-row: 3;
       }
 
       .entry {
@@ -53,6 +82,29 @@
       .date {
         max-width: 5.75rem;
         min-width: 5.75rem;
+        text-align: right;
+
+        @media (max-width: 850px) {
+          grid-row: 3;
+          color: var(--gray5);
+        }
+      }
+
+      .dateMedia {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.25rem;
+        grid-row: 3;
+
+        @media (max-width: 320px) {
+          grid-row: 4;
+          justify-content: flex-start;
+        }
+
+        .date {
+          text-align: initial;
+        }
       }
     }
   }

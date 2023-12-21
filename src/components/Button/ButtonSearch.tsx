@@ -8,12 +8,12 @@ interface ButtonSearchProps {
 }
 
 const ButtonSearch = ({ children, onClick }: ButtonSearchProps) => {
-  return children ? (
+  return (
     <button className={styles.buttonSearch} onClick={onClick}>
       <MagnifyingGlass />
       {children}
     </button>
-  ) : null;
+  );
 };
 
 export default ButtonSearch;
