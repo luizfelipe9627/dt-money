@@ -1,6 +1,6 @@
-import Entry from "../../assets/entry.svg";
-import Output from "../../assets/output.svg";
-import CurrencyDollar from "../../assets/currencyDollar.svg";
+import Entry from "../../assets/Entry.svg";
+import Output from "../../assets/Output.svg";
+import CurrencyDollar from "../../assets/CurrencyDollar.svg";
 import { useTransactions } from "../../context/TransactionsContext";
 import CardValue from "../CardValue/CardValue";
 import styles from "./Values.module.scss";
