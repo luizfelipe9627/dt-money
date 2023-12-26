@@ -19,14 +19,17 @@
     line-height: 160%;
     color: var(--green-light);
     background-color: transparent;
+    cursor: pointer;
 
     @media (max-width: 850px) {
       display: none;
     }
   }
 
-  img {
-    max-width: initial;
+  svg {
+    path {
+      fill: var(--green-light);
+    }
 
     @media (max-width: 850px) {
       width: 22px;
@@ -36,6 +39,13 @@
 
   &:hover {
     background-color: var(--green);
-    color: var(--white);
+
+    button {
+      color: var(--white);
+    }
+
+    path {
+      fill: var(--white);
+    }
   }
 }

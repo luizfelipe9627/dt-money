@@ -19,6 +19,11 @@ interface TransactionsContextProps {
       }[]
     >
   >;
+  removeTransaction: (index: number) => void;
+  transactionClicked: TransactionsProps;
+  setTransactionClicked: React.Dispatch<
+    React.SetStateAction<TransactionsProps>
+  >;
 }
 
 const TransactionsContext =
@@ -46,9 +51,29 @@ export const TransactionsProvider = ({ children }: React.PropsWithChildren) => {
       date: string;
     }[]
   >([] && JSON.parse(localStorage.getItem("transactions") || "[]"));
+  const [transactionClicked, setTransactionClicked] = React.useState(
+    {} as TransactionsProps,
+  );
+
+  const removeTransaction = (index: number) => {
+    const updatedTransactions = [
+      ...transactions.slice(0, index),
+      ...transactions.slice(index + 1),
+    ];
+    setTransactions(updatedTransactions);
+    localStorage.setItem("transactions", JSON.stringify(updatedTransactions));
+  };
 
   return (
-    <TransactionsContext.Provider value={{ transactions, setTransactions }}>
+    <TransactionsContext.Provider
+      value={{
+        transactions,
+        setTransactions,
+        removeTransaction,
+        transactionClicked,
+        setTransactionClicked,
+      }}
+    >
       {children}
     </TransactionsContext.Provider>
   );

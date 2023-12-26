@@ -5,11 +5,11 @@ import { useModal } from "../../context/ModalContext";
 import useMedia from "../../hooks/useMedia";
 
 const Header = () => {
-  const { setModal } = useModal();
+  const { setModalTransaction } = useModal();
   const media = useMedia("(max-width: 500px)");
 
   const handleOpenModal = () => {
-    setModal(true);
+    setModalTransaction(true);
     window.scrollTo({ behavior: "smooth", top: 0 });
   };
 

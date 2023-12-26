@@ -5,11 +5,13 @@ import styles from "./Transactions.module.scss";
 import useMedia from "../../hooks/useMedia";
 import CalendarBlank from "../../assets/CalendarBlank.svg";
 import TagSimple from "../../assets/TagSimple.svg";
+import { useModal } from "../../context/ModalContext";
 
 const Transactions = () => {
-  const { transactions } = useTransactions();
+  const { transactions, setTransactionClicked } = useTransactions();
   const itemsPerPage = 10;
   const media = useMedia("(max-width: 850px)");
+  const { setModalOptions } = useModal();
 
   // Estado local para controlar a página atual
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -25,12 +27,18 @@ const Transactions = () => {
     currency: "BRL", // Define a moeda como Real Brasileiro.
   });
 
+  const handleOpenModal = (transaction: TransactionsProps) => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+    setModalOptions(true);
+    setTransactionClicked(transaction);
+  };
+
   return (
     <div className={styles.transactions}>
       <ul className={`${styles.list} container`}>
         {currentItems.map((transaction, index) => {
           return (
-            <li key={index}>
+            <li key={index} onClick={() => handleOpenModal(transaction)} title="Abrir opções">
               <p className={`${styles.description} text-md`}>
                 {transaction.description}
               </p>

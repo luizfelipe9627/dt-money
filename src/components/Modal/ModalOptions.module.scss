@@ -20,7 +20,7 @@
     visibility: hidden;
   }
 
-  .modal {
+  .modalOptions {
     background-color: var(--gray2);
     width: 33.4375rem;
     padding: 3rem;
@@ -50,16 +50,14 @@
       margin-bottom: 2rem;
     }
 
-    .inputs {
+    .buttons {
       display: flex;
-      flex-direction: column;
       gap: 1rem;
-    }
 
-    .buttonsSelected {
-      display: flex;
-      gap: 1rem;
-      margin: 1.5rem 0 2.5rem 0;
+      @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
 
     button {

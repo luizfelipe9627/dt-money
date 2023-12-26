@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Modal.module.scss";
+import styles from "./ModalTransaction.module.scss";
 import Button from "../Button/Button";
 import { useButtonSelected } from "../../context/ButtonSelectedContext";
 import ButtonSelect from "../Button/ButtonSelect";
@@ -9,8 +9,8 @@ import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
 import useMedia from "../../hooks/useMedia";
 
-const Modal = () => {
-  const { modal, setModal } = useModal();
+const ModalTransaction = () => {
+  const { modalTransaction, setModalTransaction } = useModal();
   const media = useMedia("(max-width: 600px)");
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { setTransactions } = useTransactions();
@@ -45,15 +45,15 @@ const Modal = () => {
     const target = event.target as HTMLDivElement;
     const currentTarget = event.currentTarget as HTMLDivElement;
 
-    if (target === currentTarget && setModal) {
-      setModal(false);
+    if (target === currentTarget && setModalTransaction) {
+      setModalTransaction(false);
       cleanInputs();
     }
   };
 
   const handleCloseModal: React.MouseEventHandler<HTMLButtonElement> = () => {
-    if (setModal) {
-      setModal(false);
+    if (setModalTransaction) {
+      setModalTransaction(false);
       cleanInputs();
     }
   };
@@ -74,7 +74,7 @@ const Modal = () => {
         date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
       };
 
-      setModal(false);
+      setModalTransaction(false);
       setTransactions((prevTransactions) => [...prevTransactions, transaction]);
 
       cleanInputs();
@@ -148,19 +148,19 @@ const Modal = () => {
   };
 
   React.useEffect(() => {
-    if (modal) {
+    if (modalTransaction) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [modal]);
+  }, [modalTransaction]);
 
   return (
     <div
-      className={`${styles.container} ${modal ? "" : styles.isOpen}`}
+      className={`${styles.container} ${modalTransaction ? "" : styles.isOpen}`}
       onClick={handleOutsideClick}
     >
-      <div className={`${styles.modal} ${modal ? "animeBottom" : ""}`}>
+      <div className={`${styles.modalTransaction} ${modalTransaction ? "animeBottom" : ""}`}>
         <button className={styles.close} onClick={handleCloseModal}>
           <img src={X} alt="Fechar modal" title="Fechar modal" />
         </button>
@@ -209,4 +209,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default ModalTransaction;
