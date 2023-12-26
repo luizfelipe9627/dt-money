@@ -8,11 +8,9 @@ import { useModal } from "../../context/ModalContext";
 import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
 import useMedia from "../../hooks/useMedia";
-import ModalOptions from "./ModalOptions";
 
 const ModalTransaction = () => {
-  const { modalTransaction, setModalTransaction, modalEdit, modalOptions } =
-    useModal();
+  const { modalTransaction, setModalTransaction, modalEdit } = useModal();
   const media = useMedia("(max-width: 600px)");
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { transactions, setTransactions, transactionClicked } =
