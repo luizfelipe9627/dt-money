@@ -28,7 +28,6 @@ const Transactions = () => {
   });
 
   const handleOpenModal = (transaction: TransactionsProps) => {
-    window.scrollTo({ behavior: "smooth", top: 0 });
     setModalOptions(true);
     setTransactionClicked(transaction);
   };

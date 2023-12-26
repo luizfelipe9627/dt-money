@@ -11,7 +11,6 @@ const Header = () => {
   const handleOpenModal = () => {
     setModalEdit(false);
     setModalTransaction(true);
-    window.scrollTo({ behavior: "smooth", top: 0 });
   };
 
   return (

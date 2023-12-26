@@ -78,7 +78,9 @@ const ModalTransaction = () => {
         price: inputPrice,
         category: inputCategory,
         type: buttonSelected,
-        date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+        date: modalEdit
+          ? transactionClicked.date
+          : `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
       };
 
       if (modalEdit) {
