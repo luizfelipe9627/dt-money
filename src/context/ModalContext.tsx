@@ -5,6 +5,8 @@ interface ModalContextProps {
   setModalTransaction: React.Dispatch<React.SetStateAction<boolean>>;
   modalOptions: boolean;
   setModalOptions: React.Dispatch<React.SetStateAction<boolean>>;
+  modalEdit: boolean;
+  setModalEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ModalContext = React.createContext<ModalContextProps | null>(null);
@@ -22,6 +24,7 @@ export const useModal = () => {
 export const ModalProvider = ({ children }: React.PropsWithChildren) => {
   const [modalTransaction, setModalTransaction] = React.useState(false);
   const [modalOptions, setModalOptions] = React.useState(false);
+  const [modalEdit, setModalEdit] = React.useState(false);
 
   return (
     <ModalContext.Provider
@@ -30,6 +33,8 @@ export const ModalProvider = ({ children }: React.PropsWithChildren) => {
         setModalTransaction,
         modalOptions,
         setModalOptions,
+        modalEdit,
+        setModalEdit,
       }}
     >
       {children}

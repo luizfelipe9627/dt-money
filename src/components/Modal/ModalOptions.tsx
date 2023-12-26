@@ -7,7 +7,8 @@ import { useModal } from "../../context/ModalContext";
 import { useTransactions } from "../../context/TransactionsContext";
 
 const ModalOptions = () => {
-  const { modalOptions, setModalOptions } = useModal();
+  const { setModalTransaction, modalOptions, setModalOptions, setModalEdit } =
+    useModal();
   const { transactions, removeTransaction, transactionClicked } =
     useTransactions();
   const media = useMedia("(max-width: 600px)");
@@ -47,6 +48,15 @@ const ModalOptions = () => {
     });
   }
 
+  function handleEditTransaction() {
+    setModalOptions(false); // Fecha o modal de opções.
+    // Abre o modal de edição e passa a transação clicada para o modal.
+    if (setModalTransaction) {
+      setModalTransaction(true);
+      setModalEdit(true);
+    }
+  }
+
   return (
     <div
       className={`${styles.container} ${modalOptions ? "" : styles.isOpen}`}
@@ -66,7 +76,9 @@ const ModalOptions = () => {
         </h1>
 
         <div className={styles.buttons}>
-          <Button size="medium">Quero editar</Button>
+          <Button size="medium" onClick={() => handleEditTransaction()}>
+            Quero editar
+          </Button>
           <Button size="medium" onClick={() => handleRemoveTransaction()}>
             Quero deletar
           </Button>
