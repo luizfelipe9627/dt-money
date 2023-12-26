@@ -10,17 +10,15 @@ const Values = () => {
   const { transactions } = useTransactions();
   const { getLastEntry, getLastOutput, getStartAndEndDate } = useData();
 
-  const total = transactions.reduce((acc, transaction) => {
-    if (transaction.type === "entry") {
-      return acc + Number(transaction.price);
-    } else {
-      return acc - Number(transaction.price);
-    }
-  }, 0);
+  //Formata o valor da propriedade price para o formato de moeda brasileira.
+  const formatBRL = new Intl.NumberFormat("pt-br", {
+    style: "currency", // Formata o valor para o formato de moeda.
+    currency: "BRL", // Define a moeda como Real Brasileiro.
+  });
 
   const totalEntry = transactions.reduce((acc, transaction) => {
     if (transaction.type === "entry") {
-      return acc + Number(transaction.price);
+      return acc + transaction.price;
     } else {
       return acc;
     }
@@ -28,17 +26,19 @@ const Values = () => {
 
   const totalOutput = transactions.reduce((acc, transaction) => {
     if (transaction.type === "output") {
-      return acc + Number(transaction.price);
+      return acc + transaction.price;
     } else {
       return acc;
     }
   }, 0);
 
-  //Formata o valor da propriedade price para o formato de moeda brasileira.
-  const formatBRL = new Intl.NumberFormat("pt-br", {
-    style: "currency", // Formata o valor para o formato de moeda.
-    currency: "BRL", // Define a moeda como Real Brasileiro.
-  });
+  const total = transactions.reduce((acc, transaction) => {
+    if (transaction.type === "entry") {
+      return acc + transaction.price;
+    } else {
+      return acc - transaction.price;
+    }
+  }, 0);
 
   return (
     <div className={`${styles.values} container`}>

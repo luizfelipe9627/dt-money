@@ -1,29 +1,11 @@
 import React from "react";
 
 interface TransactionsContextProps {
-  transactions: {
-    description: string;
-    price: string;
-    category: string;
-    type: string | null;
-    date: string;
-  }[];
-  setTransactions: React.Dispatch<
-    React.SetStateAction<
-      {
-        description: string;
-        price: string;
-        category: string;
-        type: string | null;
-        date: string;
-      }[]
-    >
-  >;
+  transactions: Transactions;
+  setTransactions: React.Dispatch<React.SetStateAction<Transactions>>;
   removeTransaction: (index: number) => void;
-  transactionClicked: TransactionsProps;
-  setTransactionClicked: React.Dispatch<
-    React.SetStateAction<TransactionsProps>
-  >;
+  transactionClicked: Transaction;
+  setTransactionClicked: React.Dispatch<React.SetStateAction<Transaction>>;
 }
 
 const TransactionsContext =
@@ -42,17 +24,11 @@ export const useTransactions = () => {
 };
 
 export const TransactionsProvider = ({ children }: React.PropsWithChildren) => {
-  const [transactions, setTransactions] = React.useState<
-    {
-      description: string;
-      price: string;
-      category: string;
-      type: string | null;
-      date: string;
-    }[]
-  >([] && JSON.parse(localStorage.getItem("transactions") || "[]"));
+  const [transactions, setTransactions] = React.useState<Transactions>(
+    [] && JSON.parse(localStorage.getItem("transactions") || "[]"),
+  );
   const [transactionClicked, setTransactionClicked] = React.useState(
-    {} as TransactionsProps,
+    {} as Transaction,
   );
 
   const removeTransaction = (index: number) => {

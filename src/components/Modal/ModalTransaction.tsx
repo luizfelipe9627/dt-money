@@ -8,15 +8,17 @@ import { useModal } from "../../context/ModalContext";
 import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
 import useMedia from "../../hooks/useMedia";
+import ModalOptions from "./ModalOptions";
 
 const ModalTransaction = () => {
-  const { modalTransaction, setModalTransaction, modalEdit } = useModal();
+  const { modalTransaction, setModalTransaction, modalEdit, modalOptions } =
+    useModal();
   const media = useMedia("(max-width: 600px)");
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { transactions, setTransactions, transactionClicked } =
     useTransactions();
   const [inputDescription, setInputDescription] = React.useState("");
-  const [inputPrice, setInputPrice] = React.useState("");
+  const [inputPrice, setInputPrice] = React.useState(0);
   const [inputCategory, setInputCategory] = React.useState("");
   const [errorDescription, setErrorDescription] = React.useState(false);
   const [errorPrice, setErrorPrice] = React.useState(false);
@@ -24,6 +26,8 @@ const ModalTransaction = () => {
   const [successDescription, setSuccessDescription] = React.useState(false);
   const [successPrice, setSuccessPrice] = React.useState(false);
   const [successCategory, setSuccessCategory] = React.useState(false);
+  const [priceFormatted, setPriceFormatted] = React.useState(0);
+  const [inputClicked, setInputClicked] = React.useState(false);
   const date = new Date();
   const inputs = document.querySelectorAll(`.${styles.inputs} input`);
   const buttons = document.querySelectorAll(
@@ -34,16 +38,23 @@ const ModalTransaction = () => {
     setInputDescription("");
     setSuccessDescription(false);
     setErrorDescription(false);
-
-    setInputPrice("");
+    setInputPrice(0);
     setSuccessPrice(false);
     setErrorPrice(false);
-
     setInputCategory("");
     setSuccessCategory(false);
     setErrorCategory(false);
-
     setButtonSelected(null);
+    setPriceFormatted(transactionClicked.price);
+  };
+
+  const formatCurrency = (value: number) => {
+    const formattedValue = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputClicked ? value / 100 : value);
+
+    return value === 0 ? "" : formattedValue;
   };
 
   const handleOutsideClick: React.MouseEventHandler<HTMLDivElement> = (
@@ -66,16 +77,17 @@ const ModalTransaction = () => {
   };
 
   const handleCreateTransaction = () => {
+    setInputClicked(false);
+
     const isValidInputs = Array.from(inputs).every((input) =>
       input.classList.contains("success"),
     );
 
     const isValidButtonsSelected = buttonSelected ? true : false;
-
     if (isValidInputs && isValidButtonsSelected) {
       const transaction = {
         description: inputDescription,
-        price: inputPrice,
+        price: priceFormatted,
         category: inputCategory,
         type: buttonSelected,
         date: modalEdit
@@ -85,13 +97,13 @@ const ModalTransaction = () => {
 
       if (modalEdit) {
         const index = transactions.findIndex(
-          (item: TransactionsProps) =>
+          (item: Transaction) =>
             item.description === transactionClicked.description,
         );
         transactions[index] = transaction;
         setTransactions((prevTransactions) => {
           const updatedTransactions = modalEdit
-            ? prevTransactions.map((item: TransactionsProps) =>
+            ? prevTransactions.map((item: Transaction) =>
                 item.description === transactionClicked.description
                   ? transaction
                   : item,
@@ -164,9 +176,13 @@ const ModalTransaction = () => {
   };
 
   const handleInputPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputPrice(event.target.value);
+    const rawValue = event.target.value;
+    const numericValue = Number(rawValue.replace(/[^0-9]/g, ""));
+    setInputPrice(numericValue);
+    setInputClicked(true);
+    setPriceFormatted(numericValue / 100); // Atualizado para usar numericValue diretamente
 
-    if (event.target.value.length > 0) {
+    if (numericValue > 0) {
       setErrorPrice(false);
       setSuccessPrice(true);
     } else {
@@ -191,7 +207,7 @@ const ModalTransaction = () => {
     if (modalEdit && modalTransaction) {
       setInputDescription(transactionClicked.description || "");
       setSuccessDescription(true);
-      setInputPrice(transactionClicked.price || "");
+      setInputPrice(transactionClicked.price || 0);
       setSuccessPrice(true);
       setInputCategory(transactionClicked.category || "");
       setSuccessCategory(true);
@@ -235,9 +251,11 @@ const ModalTransaction = () => {
             error={errorDescription}
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Preço"
-            value={inputPrice}
+            value={formatCurrency(
+              inputClicked ? priceFormatted * 100 : inputPrice,
+            )}
             onChange={handleInputPrice}
             success={successPrice}
             error={errorPrice}

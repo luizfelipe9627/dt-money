@@ -1,7 +1,9 @@
-interface TransactionsProps {
+type Transaction = {
   description: string;
-  price: string;
+  price: number;
   category: string;
   date: string;
   type: string | null;
-}
+};
+
+type Transactions = Transaction[];

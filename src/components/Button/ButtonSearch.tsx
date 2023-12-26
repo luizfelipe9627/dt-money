@@ -9,9 +9,9 @@ interface ButtonSearchProps {
 
 const ButtonSearch = ({ children, onClick }: ButtonSearchProps) => {
   return (
-    <div className={styles.buttonSearch}>
+    <div className={styles.buttonSearch} onClick={onClick}>
       <MagnifyingGlass />
-      <button onClick={onClick}>{children}</button>
+      <button>{children}</button>
     </div>
   );
 };

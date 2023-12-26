@@ -27,7 +27,7 @@ const Transactions = () => {
     currency: "BRL", // Define a moeda como Real Brasileiro.
   });
 
-  const handleOpenModal = (transaction: TransactionsProps) => {
+  const handleOpenModal = (transaction: Transaction) => {
     setModalOptions(true);
     setTransactionClicked(transaction);
   };
@@ -37,7 +37,11 @@ const Transactions = () => {
       <ul className={`${styles.list} container`}>
         {currentItems.map((transaction, index) => {
           return (
-            <li key={index} onClick={() => handleOpenModal(transaction)} title="Abrir opções">
+            <li
+              key={index}
+              onClick={() => handleOpenModal(transaction)}
+              title="Abrir opções"
+            >
               <p className={`${styles.description} text-md`}>
                 {transaction.description}
               </p>
@@ -47,7 +51,7 @@ const Transactions = () => {
                     media ? "headline-sm" : "text-md"
                   }`}
                 >
-                  {formatBRL.format(Number(transaction.price))}
+                  {formatBRL.format(transaction.price)}
                 </p>
               ) : (
                 <p
@@ -55,7 +59,7 @@ const Transactions = () => {
                     media ? "headline-sm" : "text-md"
                   }`}
                 >
-                  - {formatBRL.format(Number(transaction.price))}
+                  - {formatBRL.format(transaction.price)}
                 </p>
               )}
               {media ? (
