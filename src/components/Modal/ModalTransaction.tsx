@@ -43,7 +43,6 @@ const ModalTransaction = () => {
     setSuccessCategory(false);
     setErrorCategory(false);
     setButtonSelected(null);
-    setPriceFormatted(transactionClicked.price);
   };
 
   const formatCurrency = (value: number) => {
@@ -210,6 +209,7 @@ const ModalTransaction = () => {
       setInputCategory(transactionClicked.category || "");
       setSuccessCategory(true);
       setButtonSelected(transactionClicked.type || null);
+      setPriceFormatted(transactionClicked.price);
     }
   }, [modalEdit, modalTransaction, transactionClicked]);
 
