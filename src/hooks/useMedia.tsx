@@ -1,4 +1,3 @@
-// Importa a biblioteca React.
 import React from "react";
 
 // Criado um hook chamado useMedia, responsável por verificar o tamanho da tela do dispositivo.

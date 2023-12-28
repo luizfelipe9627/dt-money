@@ -1,3 +1,4 @@
+// Criado um tipo global chamado Transaction.
 type Transaction = {
   description: string;
   price: number;
@@ -6,4 +7,4 @@ type Transaction = {
   type: string | null;
 };
 
-type Transactions = Transaction[];
+type Transactions = Transaction[]; // Criado um tipo global chamado Transactions do tipo array de Transaction.

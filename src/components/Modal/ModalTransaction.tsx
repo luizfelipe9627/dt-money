@@ -9,6 +9,7 @@ import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
 import useMedia from "../../hooks/useMedia";
 
+// Criado um componente chamado ModalTransaction responsável pelo modal de transação.
 const ModalTransaction = () => {
   const { modalTransaction, setModalTransaction, modalEdit } = useModal();
   const media = useMedia("(max-width: 600px)");
