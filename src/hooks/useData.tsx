@@ -51,10 +51,10 @@ const useData = () => {
   };
 
   const getStartAndEndDate = () => {
-    const lastDate = transactions[0]?.date;
     const firstDate = transactions[transactions.length - 1]?.date;
+    const lastDate = transactions[0]?.date;
 
-    return lastDate && firstDate
+    return firstDate && lastDate
       ? `De ${firstDate} até ${lastDate}`
       : "Nenhuma transação registrada";
   };
