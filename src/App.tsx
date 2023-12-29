@@ -10,8 +10,11 @@ import ModalOptions from "./components/Modal/ModalOptions";
 
 const App = () => {
   return (
+    // Passando o contexto do TransactionsProvider para os componentes filhos, ou seja, todos os componentes que estão dentro do TransactionsProvider terão acesso aos valores do contexto.
     <TransactionsProvider>
+      {/* Passando o contexto do ModalProvider para os componentes filhos, ou seja, todos os componentes que estão dentro do ModalProvider terão acesso aos valores do contexto. */}
       <ModalProvider>
+        {/* Passando o contexto do ButtonSelectedProvider para os componentes filhos, ou seja, todos os componentes que estão dentro do ButtonSelectedProvider terão acesso aos valores do contexto. */}
         <ButtonSelectedProvider>
           <ModalTransaction />
           <Header />
