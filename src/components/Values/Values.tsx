@@ -41,7 +41,7 @@ const Values = () => {
   }, 0);
 
   return (
-    <div className={`${styles.values} container`}>
+    <div className={styles.values}>
       <CardValue
         title="Entradas"
         value={formatBRL.format(totalEntry)}
@@ -58,9 +58,9 @@ const Values = () => {
         title="Total"
         value={formatBRL.format(total)}
         imgSrc={CurrencyDollar}
-        bgColor="var(--green-dark)"
+        bgColor="#015f43"
         info={getStartAndEndDate()}
-        colorInfo="var(--gray6)"
+        colorInfo="#c4c4cc"
       />
     </div>
   );

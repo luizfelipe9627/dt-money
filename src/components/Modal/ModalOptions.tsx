@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../Button/Button";
 import styles from "./ModalOptions.module.scss";
 import X from "../../assets/X.svg";
-import useMedia from "../../hooks/useMedia";
 import { useModal } from "../../context/ModalContext";
 import { useTransactions } from "../../context/TransactionsContext";
 
@@ -11,7 +10,6 @@ const ModalOptions = () => {
     useModal();
   const { transactions, removeTransaction, transactionClicked } =
     useTransactions();
-  const media = useMedia("(max-width: 600px)");
 
   const handleOutsideClick: React.MouseEventHandler<HTMLDivElement> = (
     event,
@@ -71,9 +69,7 @@ const ModalOptions = () => {
           <img src={X} alt="Fechar modal" title="Fechar modal" />
         </button>
 
-        <h1 className={media ? "headline-sm" : "headline-md"}>
-          O que deseja fazer com essa transação?
-        </h1>
+        <h1>O que deseja fazer com essa transação?</h1>
 
         <div className={styles.buttons}>
           <Button size="medium" onClick={() => handleEditTransaction()}>

@@ -14,8 +14,8 @@ const Header = () => {
   };
 
   return (
-    <header className={`${styles.header}`}>
-      <div className={`${styles.wrapper} container`}>
+    <header className={styles.header}>
+      <div className={styles.wrapper}>
         <Logo />
 
         <Button size={media ? "small" : "medium"} onClick={handleOpenModal}>

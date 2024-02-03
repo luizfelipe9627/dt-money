@@ -1,25 +1,30 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.9994rem;
+  gap: rem(16px);
+  
 
   @media (max-width: 500px) {
-    gap: 0.5625rem;
+    gap: rem(9px);
 
     img {
-      width: 24px;
-      height: 24px;
+      width: rem(24px);
+      height: rem(24px);
     }
   }
 
   h1 {
-    color: var(--gray7);
-    font-size: 1.59906rem;
+    color: $gray7;
+    font-size: rem(25px);
     font-weight: 700;
     line-height: 160%;
 
     @media (max-width: 500px) {
-      font-size: 1.1993rem;
+      font-size: rem(19px);
+    }
+
+    @media (max-width: 350px) {
+      font-size: rem(16px);
     }
   }
 }

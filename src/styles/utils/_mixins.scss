@@ -1,0 +1,64 @@
+@mixin button($size) {
+  font-weight: 700;
+  line-height: 160%;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+  background-color: $green;
+  color: $white;
+
+  &:hover {
+    background-color: $green-light;
+  }
+
+  @if $size == small {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  } @else if $size == medium {
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
+  } @else if $size == large {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@mixin container {
+  max-width: 80vw;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 85vw;
+  }
+}
+
+@mixin type-typography($typography) {
+  @if $typography == sm {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 160%;
+  } @else if $typography == md {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 160%;
+  } @else if $typography == lg {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 140%;
+  }
+}
+
+@mixin device($device) {
+  @if $device == mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}

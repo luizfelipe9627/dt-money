@@ -32,13 +32,12 @@ const Search = () => {
 
   return (
     <div className={styles.search}>
-      <div className={`${styles.wrapper} container`}>
+      <div className={styles.wrapper}>
         <input
           type="text"
           onChange={handleChange}
           value={search}
           placeholder="Busque uma transação"
-          className="text-md"
         />
         <ButtonSearch onClick={handleSearch}>Buscar</ButtonSearch>
       </div>

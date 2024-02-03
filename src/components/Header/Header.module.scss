@@ -1,12 +1,13 @@
 .header {
-  background-color: var(--gray1);
-  height: 13.25rem;
-  padding-top: 40px;
+  background-color: $gray1;
+  height: rem(212px);
+  padding-top: rem(40px);
   position: absolute;
   width: 100%;
   z-index: 1;
 
   .wrapper {
+    @include container;
     display: flex;
     justify-content: space-between;
   }

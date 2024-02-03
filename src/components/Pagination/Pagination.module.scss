@@ -2,37 +2,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin-top: 2.5rem;
+  gap: rem(16px);
+  margin-top: rem(40px);
 
   .buttons {
     display: flex;
-    gap: 0.5rem;
+    gap: rem(8px);
 
     button {
-      width: 2.5rem;
-      height: 2.5rem;
-      font-size: 1rem;
+      width: rem(40px);
+      height: rem(40px);
+      font-size: rem(16px);
       font-weight: 700;
       line-height: 140%;
-      border-radius: 0.375rem;
+      border-radius: rem(6px);
       color: #8d8d99;
-      background-color: var(--gray4);
+      background-color: $gray4;
 
       &.active {
-        background-color: var(--green-dark);
-        color: var(--gray7);
-        border-radius: 0.375rem;
+        background-color: green-dark;
+        color: $gray7;
+        border-radius: rem(6px);
 
         &:hover {
-          background-color: var(--green);
-          color: var(--gray7);
+          background-color: green;
+          color: $gray7;
         }
       }
 
       &:hover {
-        background-color: var(--gray3);
-        color: var(--gray7);
+        background-color: gray3;
+        color: $gray7;
       }
     }
   }

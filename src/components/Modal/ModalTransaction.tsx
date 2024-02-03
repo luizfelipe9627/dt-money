@@ -7,11 +7,9 @@ import X from "../../assets/X.svg";
 import { useModal } from "../../context/ModalContext";
 import Input from "../Input/Input";
 import { useTransactions } from "../../context/TransactionsContext";
-import useMedia from "../../hooks/useMedia";
 
 const ModalTransaction = () => {
   const { modalTransaction, setModalTransaction, modalEdit } = useModal();
-  const media = useMedia("(max-width: 600px)");
   const { buttonSelected, setButtonSelected } = useButtonSelected();
   const { transactions, setTransactions, transactionClicked } =
     useTransactions();
@@ -235,7 +233,7 @@ const ModalTransaction = () => {
           <img src={X} alt="Fechar modal" title="Fechar modal" />
         </button>
 
-        <h1 className={media ? "headline-sm" : "headline-md"}>
+        <h1>
           {modalEdit ? "Editar transação" : "Nova transação"}
         </h1>
 

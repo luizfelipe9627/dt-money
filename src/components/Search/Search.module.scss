@@ -1,24 +1,26 @@
 .search {
-  margin-top: 199px;
+  margin-top: rem(199px);
 
   .wrapper {
+    @include container;
     display: flex;
-    gap: 1rem;
+    gap: rem(16px);
 
     input {
+      @include type-typography(md);
       width: 100%;
-      padding: 1rem;
-      border-radius: 0.375rem;
-      background-color: var(--gray1);
-      color: var(--gray8);
+      padding: rem(16px);
+      border-radius: rem(6px);
+      background-color: $gray1;
+      color: $gray8;
 
       &::placeholder {
-        color: var(--gray5);
+        color: $gray5;
       }
     }
 
     @media (max-width: 850px) {
-      gap: 0.5rem;
+      gap: rem(8px);
     }
   }
 }

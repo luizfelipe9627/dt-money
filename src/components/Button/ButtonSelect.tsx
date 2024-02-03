@@ -36,7 +36,7 @@ const ButtonSelect = ({ type, children }: ButtonSelectProps) => {
         <button
           className={`${styles.buttonEntry} ${
             buttonSelected === "entry" ? styles.selected : ""
-          } text-md`}
+          }`}
           onClick={handleButtonEntry}
         >
           <ArrowUp size="small" />
@@ -47,7 +47,7 @@ const ButtonSelect = ({ type, children }: ButtonSelectProps) => {
         <button
           className={`${styles.buttonOutput} ${
             buttonSelected === "output" ? styles.selected : ""
-          }  text-md`}
+          }`}
           onClick={handleButtonOutput}
         >
           <ArrowDown size="small" />

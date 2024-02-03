@@ -21,45 +21,50 @@
   }
 
   .modalTransaction {
-    background-color: var(--gray2);
-    width: 33.4375rem;
-    padding: 3rem;
+    background-color: $gray2;
+    width: rem(535px);
+    padding: rem(48px);
     position: relative;
 
     @media (max-width: 600px) {
       width: 100vw;
-      border-radius: 20px 20px 0 0;
-      padding: 1.5rem;
+      border-radius: rem(20px) rem(20px) 0 0;
+      padding: rem(24px);
     }
 
     .close {
       width: max-content;
       background-color: transparent;
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: rem(24px);
+      right: rem(24px);
 
       @media (max-width: 600px) {
-        width: 24px;
-        height: 24px;
+        width: rem(24px);
+        height: rem(24px);
       }
     }
 
     h1 {
-      color: var(--gray7);
-      margin-bottom: 2rem;
+      color: $gray7;
+      margin-bottom: rem(32px);
+      @include type-typography(lg);
+
+      @media (max-width: 600px) {
+        @include type-typography(sm);
+      }
     }
 
     .inputs {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: rem(16px);
     }
 
     .buttonsSelected {
       display: flex;
-      gap: 1rem;
-      margin: 1.5rem 0 2.5rem 0;
+      gap: rem(16px);
+      margin: rem(24px) 0 rem(40px) 0;
     }
 
     button {

@@ -1,0 +1,17 @@
+body {
+  background-color: $gray2;
+}
+
+.animeBottom {
+  opacity: 0;
+  transform: translateY(-2.5rem);
+  animation: animeBottom 1.2s forwards;
+}
+
+.success {
+  border: 0.0625rem solid $green;
+}
+
+.error {
+  border: 0.0625rem solid $red;
+}

@@ -34,7 +34,7 @@ const Transactions = () => {
 
   return (
     <div className={styles.transactions}>
-      <ul className={`${styles.list} container`}>
+      <ul className={styles.list}>
         {currentItems.map((transaction, index) => {
           return (
             <li
@@ -42,22 +42,18 @@ const Transactions = () => {
               onClick={() => handleOpenModal(transaction)}
               title="Abrir opções"
             >
-              <p className={`${styles.description} text-md`}>
+              <p className={styles.description}>
                 {transaction.description}
               </p>
               {transaction.type === "entry" ? (
                 <p
-                  className={`${styles.entry} ${
-                    media ? "headline-sm" : "text-md"
-                  }`}
+                  className={styles.entry}
                 >
                   {formatBRL.format(transaction.price)}
                 </p>
               ) : (
                 <p
-                  className={`${styles.output} ${
-                    media ? "headline-sm" : "text-md"
-                  }`}
+                  className={styles.output}
                 >
                   - {formatBRL.format(transaction.price)}
                 </p>
@@ -65,22 +61,22 @@ const Transactions = () => {
               {media ? (
                 <div className={styles.categoryMedia}>
                   <img src={TagSimple} alt="Tag simples" />
-                  <p className={`${styles.category} text-md`}>
+                  <p className={styles.category}>
                     {transaction.category}
                   </p>
                 </div>
               ) : (
-                <p className={`${styles.category} text-md`}>
+                <p className={styles.category}>
                   {transaction.category}
                 </p>
               )}
               {media ? (
                 <div className={styles.dateMedia}>
                   <img src={CalendarBlank} alt="Calendário vazio" />
-                  <p className={`${styles.date} text-md`}>{transaction.date}</p>
+                  <p className={styles.date}>{transaction.date}</p>
                 </div>
               ) : (
-                <p className={`${styles.date} text-md`}>{transaction.date}</p>
+                <p className={styles.date}>{transaction.date}</p>
               )}
             </li>
           );

@@ -1,13 +1,14 @@
 .values {
+  @include container;
   display: flex;
-  gap: 2rem;
+  gap: rem(32px);
   z-index: 999;
   position: relative;
-  top: 135px;
+  top: rem(135px);
   overflow: auto;
 
   @media (max-width: 990px) {
-    gap: 1rem;
+    gap: rem(16px);
   }
 
   &::-webkit-scrollbar {
